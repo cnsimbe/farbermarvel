@@ -1,0 +1,44 @@
+character-profile {
+
+
+
+}
+
+.user-info-container {
+	display:flex;
+	flex-direction:column;
+	margin-top:-0.75em;
+
+}
+
+.user-info-container > span {
+	text-align:left;
+	margin: 0.1em 0;
+	max-height:100px;
+	overflow:hidden;
+}
+
+
+
+.comic-list {
+	width:100%;
+	display:flex;
+	justify-content:center;
+}
+
+.comic-list > button {
+	width:90%;
+	max-width:450px;
+}
+.img-avatar[imgavatar]
+{
+	width:100px;
+	height:100px;
+}
+
+.username[username]
+{
+	text-align:center;
+	max-width:100px;
+	white-space:normal;
+}

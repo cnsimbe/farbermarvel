@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-wrap>
+      {{comic.title}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list >
+    <ion-list-header>
+      <span>Digital ID</span>
+      <span class="right-item-header" item-end>{{comic.digitalId}}</span>
+    </ion-list-header>
+    <ion-item >
+      <ion-avatar item-start>
+        <img class="comic-image" [src]="comic.thumbnail | imgPerm">
+      </ion-avatar>
+      <h2>Issue #{{comic.issueNumber}}</h2>
+      <p>{{comic.issn}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-list-header>
+    <span>Format</span>
+    <span class="right-item-header" item-end>{{comic.format}}</span>
+  </ion-list-header>
+
+  <ion-list padding>
+    <div>Description:</div>
+    <div text-wrap>
+      {{comic.description}}
+    </div>
+  </ion-list>
+
+</ion-content>

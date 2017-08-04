@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-searchbar #sb searchB (ionInput)="searchText(sb.value)" [debounce]="300"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-scroll scrollY="true" style="height:100%">
+    <ion-list>
+      <ion-item *ngFor="let character of characters" (tap)="goToUserProfile(character)">
+        <ion-avatar item-start>
+          <img [src]="character.thumbnail  | imgPerm">
+        </ion-avatar>
+        <h2>{{character.name}}</h2>
+        <span location>
+          <ion-icon name="ios-locate-outline"></ion-icon>
+          <p>{{character.description}}</p>
+          <p *ngIf="!(character.description && character.description.length>0)"><i>Character Description</i></p>
+        </span>
+        
+        <button ion-button outline availstatus item-end>{{character.comics.available}} comics</button>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+</ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row pager>
+          <ion-col col-auto>
+            <ion-icon name="arrow-back" (tap)="currentPage > 1 ? searchText(sb.value, currentPage-1) : ''"></ion-icon>
+          </ion-col>
+          <ion-col col-auto>
+            <div>{{currentPage}}/{{totalPages}}</div>
+          </ion-col>
+          <ion-col col-auto>
+            <ion-icon name="arrow-forward" (tap)="(currentPage < totalPages) ? searchText(sb.value, currentPage+1) : ''"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

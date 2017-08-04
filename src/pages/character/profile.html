@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      {{character.name}} Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <ion-list >
+    <ion-item no-lines >
+      <ion-avatar item-start>
+        <img class="img-avatar" imgavatar [src]="character.thumbnail  | imgPerm">
+        <ion-label class="username" username>{{character.name}}</ion-label>
+      </ion-avatar>
+      <div item-content class="user-info-container">
+          <span >{{character.description}}</span>
+          <span *ngIf="!(character.description && character.description.length>0)"><i>Character Description</i></span>
+      </div>
+    </ion-item>
+    
+    <ion-item-divider no-lines></ion-item-divider>
+
+    
+    <button ion-item>
+        Comics
+        <ion-note item-end>{{character.comics.available}}</ion-note>
+    </button>
+    <button ion-item >
+        Stories
+        <ion-note item-end>{{character.stories.available}}</ion-note>
+    </button>
+    <button ion-item >
+        Events
+        <ion-note item-end>{{character.events.available}}</ion-note>
+    </button>
+    <button ion-item >
+        Series
+        <ion-note item-end>{{character.series.available}}</ion-note>
+    </button>
+
+  </ion-list>
+  <div class="comic-list">
+    <button (tap)="goToComicList()" ion-button color="secondary" round icon-end >
+      <ion-icon name="color-wand"></ion-icon>
+      View Comic List
+    </button>
+  </div>
+</ion-content>
